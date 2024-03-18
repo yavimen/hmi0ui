@@ -16,10 +16,10 @@ const TournamentDetailCard = () => {
     const [showEditDialog, setShowEditDialog] = useState(false);
 
     const [isConfirmed, setIsConfirmed] = useState(false);
-
+    console.log(isConfirmed);
     const { id } = useParams();
     const { globalData, addToastMessage, deleteTournament } = useGlobalContext();
-    const tournament = globalData.tournaments.find(x => x.id == id);
+    const tournament = globalData.tournaments.find(x => x.id === +id);
     if (!tournament) {
         navigate.push('/not-found');
         return null;
@@ -60,14 +60,14 @@ const TournamentDetailCard = () => {
                         <div>{tournament.name}</div>
                         <div className='d-flex'>
                             <Button className='d-flex align-items-center shadow-sm mx-3' style={{ borderRadius: '15px' }} size="sm" variant='light' onClick={() => setShowEditDialog(true)}>
-                                <img src={pen} style={{ width: '18px', height: "auto" }} />
+                                <img src={pen} style={{ width: '18px', height: "auto" }} alt='pen'/>
                                 Редагувати
                             </Button>
                             <Button disabled={loading} className='d-flex align-items-center shadow-sm' style={{ borderRadius: '15px' }} size="sm" variant={loading ? 'secondary' : 'danger'} onClick={handleDelete}>
                                 {loading ? (
                                     <Spinner animation="border" size="sm" />
                                 ) : (
-                                    <img src={bin} style={{ width: '18px', height: "auto" }} />
+                                    <img src={bin} style={{ width: '18px', height: "auto" }} alt='bin'/>
                                 )}
                                 Видалити
                             </Button>

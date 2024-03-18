@@ -57,7 +57,7 @@ const TournamentsCard = ({selectedSeasonBreadcrumb, setSelectedSeasonBreadcrumb}
                                         <td>{x.season.name}</td>
                                         <td>{x.type.name}</td>
                                         <td>{x.participants.length}</td>
-                                        <td><Link title='Перейти на сторінку з повною інформацією про турнір' onClick={() => {}} to={''+x.id}><img src={help} style={{ width: '22px', height: "auto" }} /></Link></td>
+                                        <td><Link title='Перейти на сторінку з повною інформацією про турнір' onClick={() => {}} to={''+x.id}><img src={help} style={{ width: '22px', height: "auto" }} alt='help'/></Link></td>
                                         {/* Add more columns based on your data structure */}
                                     </tr>
                                 ))}

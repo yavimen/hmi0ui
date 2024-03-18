@@ -1,15 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import pen from '../assets/pen.png';
 import { useGlobalContext } from '../store/GlobalContext';
 import { Col, Row } from 'react-bootstrap';
 const LocationDetailCard = () => {
     const { globalData } = useGlobalContext();
     const cardStyle = { backgroundColor: "#F6F6F6", border: 'none' };
     const { id } = useParams();
-    const location = globalData.tournaments.find(x => x.id == id).location;
+    const location = globalData.tournaments.find(x => x.id === +id).location;
     return (
         <div>
         <Card style={cardStyle}>

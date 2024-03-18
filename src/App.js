@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Header';
-import GlobalStyles from './GlobalStyles';
 import NotFound from './pages/NotFound';
 import TournamentPage from './pages/TournamentsPage';
 import TournamentDetailPage from './pages/TournamentDetailPage';

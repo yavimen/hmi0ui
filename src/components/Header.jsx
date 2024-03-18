@@ -12,7 +12,6 @@ import settings from '../assets/settings.png';
 import help from '../assets/help.png';
 
 const Navbar = () => {
-    const colSize = null;
     return (
         <div className='d-flex justify-content-between align-items-center w-100 p-3' style={{ backgroundColor: '#D9D9D9' }}>
             <div className='d-flex align-items-center'>

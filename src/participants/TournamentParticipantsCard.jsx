@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { useGlobalContext } from '../store/GlobalContext';
-import { Link } from 'react-router-dom';
 import bin from '../assets/bin.png';
 import { useParams  } from 'react-router-dom';
 import AddParticipantToTournamentDialog from './AddParticipantToTournamentDialog';
@@ -10,7 +9,7 @@ import ConfirmationDialog from '../components/ConfirmationDialog';
 const TournamentParticipantsCard = () => {
     const { globalData, deleteParticipant, addToastMessage } = useGlobalContext();
     const { id } = useParams();
-    const tournament = globalData.tournaments.find(x => x.id == id);
+    const tournament = globalData.tournaments.find(x => x.id === +id);
     const cardStyle = { backgroundColor: "#F6F6F6", border: 'none' };
     const [showAddDialog, setShowAddDialog] = useState(false);
     const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
@@ -43,7 +42,7 @@ const TournamentParticipantsCard = () => {
                                         <td>
                                         <div className='d-flex justify-content-end'>
                                         <Button className='px-1' style={{ borderRadius: '10px' }} size="sm" variant='danger' onClick={() => handleDeleteParticipant(x)}>
-                                            <img src={bin} style={{ width: '18px', height: "auto" }} />
+                                            <img src={bin} style={{ width: '18px', height: "auto" }} alt={x.id}/>
                                         </Button>
                                         </div>
                                         </td>

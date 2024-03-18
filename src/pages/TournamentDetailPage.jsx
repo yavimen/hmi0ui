@@ -11,7 +11,7 @@ const TournamentDetailPage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { globalData} = useGlobalContext();
-    const tournament = globalData.tournaments.find(x => x.id == id);
+    const tournament = globalData.tournaments.find(x => x.id === +id);
     if (!tournament) {
         navigate('/not-found');
         return null;

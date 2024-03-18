@@ -13,7 +13,7 @@ const HeaderLink = ({ path, iconSource, width, hint, children }) => {
     return (
         <div className='d-flex align-items-center mx-2'>
             <div xs={6}>
-                <img src={iconSource} style={{ width: width ?? '22px', height: "auto" }} />
+                <img alt={path} src={iconSource} style={{ width: width ?? '22px', height: "auto" }} />
             </div>
             <div className='p-0' xs={6}>
                 <Link to={path} style={linkStyle} title={hint}>
