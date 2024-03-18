@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import help from '../assets/help.png';
 import TournamentDialog from './TournamentDialog';
 
-const TournamentsCard = () => {
+const TournamentsCard = ({selectedSeasonBreadcrumb, setSelectedSeasonBreadcrumb}) => {
     const cardStyle = { backgroundColor: "#F6F6F6", border: 'none' };
     const { globalData } = useGlobalContext();
     const { tournaments, seasons } = globalData;
@@ -17,15 +17,23 @@ const TournamentsCard = () => {
         textDecoration: 'none', // Remove the default underline
     };
     const [showModal, setShowModal] = useState(false);
+    const handleSelecteSeason = (season) => {
+        setSelectedSeason(season);
+        const seasonBreadcrumb = season ? {
+            text: season.name,
+            disabled: true,
+        } : null;
+        setSelectedSeasonBreadcrumb(seasonBreadcrumb)
+    }
     return (
         <div>
             <Card style={cardStyle}>
                 <Card.Body>
                     <Card.Title className='d-flex justify-content-between w-100'>
                         <div className='d-flex h6'>
-                            <Link style={{ borderBottom: selectedSeason === null ? '2px solid black' : 'none', ...linkStyle }} onClick={() => setSelectedSeason(null)}>Усі сезони</Link>
+                            <Link style={{ borderBottom: selectedSeason === null ? '2px solid black' : 'none', ...linkStyle }} onClick={() => handleSelecteSeason(null)}>Усі сезони</Link>
                             {seasons.map((season) => (
-                                <Link className='mx-2' style={{ borderBottom: season.id === selectedSeason?.id ? '2px solid black' : 'none', ...linkStyle }} key={season.id} onClick={() => setSelectedSeason(season)}>
+                                <Link className='mx-2' style={{ borderBottom: season.id === selectedSeason?.id ? '2px solid black' : 'none', ...linkStyle }} key={season.id} onClick={() => handleSelecteSeason(season)}>
                                     {season.name}
                                 </Link>
                             ))}

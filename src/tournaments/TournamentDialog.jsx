@@ -17,6 +17,7 @@ const TournamentDialog = ({ showFlag, setShowFlag, data }) => {
         seasonId: data?.season.id ?? '',
         typeId: data?.type.id ?? '',
         description: data?.description ?? '',
+        participants: data?.participants ?? [],
     });
     
     // Function to handle changes in form inputs
@@ -32,6 +33,7 @@ const TournamentDialog = ({ showFlag, setShowFlag, data }) => {
             seasonId: data?.season.id ?? '',
             typeId: data?.type.id ?? '',
             description: data?.description ?? '',
+            participants: data?.participants ?? [],
         });
     }
     const resetFormData = () => {
@@ -40,7 +42,8 @@ const TournamentDialog = ({ showFlag, setShowFlag, data }) => {
             name: '',
             locationId: '',
             seasonId: '',
-            typeId: ''
+            typeId: '',
+            participants: [],
         })
     }
 

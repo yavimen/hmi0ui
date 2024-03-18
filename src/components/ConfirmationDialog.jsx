@@ -1,15 +1,15 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const ConfirmationDialog = ({ questionText, impact, setIsConfirmed, show, setShow, functionToContinue }) => {
+const ConfirmationDialog = ({ questionText, impact, setIsConfirmed, show, setShow, functionToContinue, confirmationData }) => {
     const handleClose = () => {
-        setIsConfirmed(false)
+        if (setIsConfirmed) setIsConfirmed(false)
         setShow(false)
     }
     const handleConfirm = () => {
-        setIsConfirmed(true)
+        if (setIsConfirmed) setIsConfirmed(true)
         setShow(false)
-        functionToContinue(true)
+        functionToContinue(true, confirmationData)
     }
     return (
         <Modal show={show}>

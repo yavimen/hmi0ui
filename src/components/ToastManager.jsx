@@ -10,10 +10,10 @@ const ToastManager = () => {
         deleteToastMessage(key);
     }
     return (
+        <div style={{ position: 'sticky', top: '0', zIndex: '9999' }}>
         <ToastContainer
             className="p-3"
             position="top-center"
-            style={{ zIndex: 1 }}
         >
             {toastMessages.map(({ key, variant, header, text, visibility }) => (
                 <Toast onClose={() => handleClose(key)} show={visibility} key={key} bg={variant} animation delay={5000} autohide close>
@@ -26,6 +26,7 @@ const ToastManager = () => {
                 </Toast>
             ))}
         </ToastContainer>
+        </div>
     );
 };
 

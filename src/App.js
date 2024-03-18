@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import TournamentPage from './pages/TournamentsPage';
 import TournamentDetailPage from './pages/TournamentDetailPage';
 import ToastManager from './components/ToastManager';
+import WheatherPage from './pages/WheatherPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/tournaments" exact element={<TournamentPage />} />
           <Route path="/tournaments/:id" element={<TournamentDetailPage />} />
+          <Route path="/wheather" element={<WheatherPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
