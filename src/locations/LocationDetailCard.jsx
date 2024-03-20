@@ -17,7 +17,7 @@ const LocationDetailCard = () => {
                 </Card.Title>
                 <div className='d-flex justify-content-center'>
                     <div>
-                        <img src={location.imageUrl} alt='зображення локації'/> 
+                        <img style={{maxWidth:"100%" }} src={location.imageUrl} alt='зображення локації'/> 
                     </div>
                 </div>    
                 <Row className='mb-2'>

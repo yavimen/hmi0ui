@@ -118,6 +118,31 @@ export const GlobalProvider = ({ children }) => {
         }));
     };
 
+    const deleteLocation = (location) => {
+        setGlobalData((prevData) => ({
+            ...prevData,
+            locations: [...prevData.locations.filter(x => x.id !== location.id)]
+        }));
+    };
+
+    const addLocation = (location) => {
+        setGlobalData((prevData) => ({
+            ...prevData,
+            locations: [...prevData.locations, location]
+        }));
+    };
+
+    const updateLocation = (updatedLocation) => {
+        const tournamentsWithCurrentLocation = globalData.tournaments.filter(x => x.location.id === updatedLocation.id);
+        tournamentsWithCurrentLocation.forEach(x => x.location = updatedLocation);
+        setGlobalData((prevData) => ({
+            ...prevData,
+            locations: prevData.locations.map((location) =>
+                location.id === updatedLocation.id ? updatedLocation : location
+            ),
+        }));
+    };
+
     return (
         <GlobalContext.Provider value={{ 
             globalData, 
@@ -127,7 +152,10 @@ export const GlobalProvider = ({ children }) => {
             updateTournament, 
             addToastMessage, 
             deleteToastMessage,
-            deleteParticipant, }}
+            deleteParticipant,
+            deleteLocation,
+            addLocation,
+            updateLocation, }}
         >
             {children}
         </GlobalContext.Provider>
