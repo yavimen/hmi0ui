@@ -71,7 +71,7 @@ const TournamentDialog = ({ showFlag, setShowFlag, data }) => {
             }
             else {
                 const newTournament = {
-                    id: Math.max(globalData.tournaments.map(x => x.id)) + 1,
+                    id: globalData.tournaments.length + 1,
                     name: formData.name,
                     location: globalData.locations.find(x => x.id === +formData.locationId),
                     season: globalData.seasons.find(x => x.id === +formData.seasonId),
